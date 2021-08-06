@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-quicksight": "^3.24.0",
+    "@aws-sdk/types": "^3.22.0",
     "amazon-quicksight-embedding-sdk": "^1.0.17",
     "next": "11.0.1",
     "react": "17.0.2",
