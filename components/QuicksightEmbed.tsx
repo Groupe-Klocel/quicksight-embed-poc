@@ -17,12 +17,12 @@ export class QuicksightEmbed extends Component<Props, State> {
   dashboardId = "quicksight-embed";
 
   componentDidMount() {
-    this.setState({
-      loader: false,
-    });
     QuicksightEmbedding.embedDashboard({
       url: this.props.url,
       container: document.getElementById(this.dashboardId)!,
+    });
+    this.setState({
+      loader: false,
     });
   }
 

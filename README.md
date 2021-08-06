@@ -3,6 +3,7 @@
 References:
 
 - [https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
+- [amplify-quicksight-dashboard-embedded](https://github.com/aurbac/amplify-quicksight-dashboard-embedded#configure-the-react-application)
 - [https://learnquicksight.workshop.aws/](https://learnquicksight.workshop.aws/)
 
 ## Getting Started
