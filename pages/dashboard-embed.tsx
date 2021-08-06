@@ -2,12 +2,7 @@ import Quicksight from "aws-sdk/clients/quicksight";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import React from "react";
 import { QuicksightEmbed } from "../components/QuicksightEmbed";
-
-const quicksight = new Quicksight({
-  region: process.env.AWS_REGION_NUAGE,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID_NUAGE,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_NUAGE,
-});
+import styles from "../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   /*
@@ -17,6 +12,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   See documentation:
   https://docs.aws.amazon.com/quicksight/latest/user/embedded-dashboards-for-authenticated-users-step-2.html
   */
+
+  const quicksight = new Quicksight({
+    region: process.env.AWS_REGION_NUAGE,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID_NUAGE,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_NUAGE,
+  });
 
   const generateEmbedUrl = () => {
     return new Promise((resolve, reject) => {
@@ -54,7 +55,9 @@ function DashboarEmbedPage(
 ) {
   return (
     <>
-      <h1>Dashboard embed</h1>
+      <main className={styles.main}>
+        <h1 className={styles.title}>Dashboard Embed</h1>
+      </main>
       <QuicksightEmbed url={props.url} />
     </>
   );
