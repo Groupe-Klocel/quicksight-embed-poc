@@ -21,20 +21,28 @@ export class QuicksightEmbed extends Component<Props, State> {
       url: this.props.url,
       container: document.getElementById(this.dashboardId)!,
       height: "AutoFit",
-      loadingHeight: "600px",
+      loadingHeight: "400px",
       width: "100%",
       printEnabled: true,
-      footerPaddingEnabled: true,
+      footerPaddingEnabled: false,
       locale: "fr-Fr",
       scrolling: "no",
       parameters: {},
     });
+
     this.setState({
       loader: false,
     });
+
+    console.log(this.state.loader);
   }
 
   render() {
-    return <div id={this.dashboardId}></div>;
+    return (
+      <div>
+        {this.state.loader && <div>loading...</div>}
+        <div id={this.dashboardId}></div>
+      </div>
+    );
   }
 }
