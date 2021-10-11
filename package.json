@@ -12,7 +12,7 @@
     "@aws-sdk/types": "^3.22.0",
     "amazon-quicksight-embedding-sdk": "^1.0.17",
     "aws-sdk": "^2.962.0",
-    "next": "11.0.1",
+    "next": "11.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
