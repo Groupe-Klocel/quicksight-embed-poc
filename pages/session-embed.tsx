@@ -6,12 +6,12 @@ import styles from "../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   /*
-  Retrieves a Quicksight Embed URL on the server-side using the JS SDK,
-  then exports the URL as a property to be used by the frontend
-
-  See documentation:
-  https://docs.aws.amazon.com/quicksight/latest/user/embedded-dashboards-for-authenticated-users-step-2.html
-  */
+    Retrieves a Quicksight Embed URL on the server-side using the JS SDK,
+    then exports the URL as a property to be used by the frontend
+  
+    See documentation:
+    https://docs.aws.amazon.com/quicksight/latest/user/embedded-dashboards-for-authenticated-users-step-2.html
+    */
 
   const quicksight = new Quicksight({
     region: process.env.AWS_REGION_NUAGE,
@@ -25,11 +25,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         {
           AwsAccountId: process.env.AWS_ACCOUNT_ID!,
           ExperienceConfiguration: {
-            Dashboard: {
-              InitialDashboardId: process.env.QUICKSIGHT_DASHBOARD_ID!,
+            QuickSightConsole: {
+              InitialPath: "/start",
+              // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisteredUserQuickSightConsoleEmbeddingConfiguration.html
             },
           },
-          UserArn: `arn:aws:quicksight:${process.env.AWS_REGION_NUAGE}:${process.env.AWS_ACCOUNT_ID}:user/default/${process.env.QUICKSIGHT_USER_EMAIL}` /* required */,
+          UserArn: `arn:aws:quicksight:${process.env.AWS_REGION_NUAGE}:${process.env.AWS_ACCOUNT_ID}:user/default/${process.env.QUICKSIGHT_USER_EMAIL}`,
           SessionLifetimeInMinutes: 600,
         },
         function (err, data) {
@@ -45,7 +46,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-function DashboarEmbedPage(
+function SessionEmbedPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   return (
@@ -58,4 +59,4 @@ function DashboarEmbedPage(
   );
 }
 
-export default DashboarEmbedPage;
+export default SessionEmbedPage;
