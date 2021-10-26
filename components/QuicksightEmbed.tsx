@@ -2,6 +2,7 @@ import * as QuicksightEmbedding from "amazon-quicksight-embedding-sdk";
 import { Component } from "react";
 interface Props {
   url: string;
+  loadingHeight?: string;
 }
 
 interface State {
@@ -21,7 +22,7 @@ export class QuicksightEmbed extends Component<Props, State> {
       url: this.props.url,
       container: document.getElementById(this.dashboardId)!,
       height: "AutoFit",
-      loadingHeight: "400px",
+      loadingHeight: this.props.loadingHeight || "400px",
       width: "100%",
       printEnabled: true,
       footerPaddingEnabled: false,

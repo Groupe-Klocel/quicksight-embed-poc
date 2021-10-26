@@ -27,7 +27,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           ExperienceConfiguration: {
             QuickSightConsole: {
               InitialPath: "/start",
-              // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisteredUserQuickSightConsoleEmbeddingConfiguration.html
+              /*
+              Possible values as follows:
+                /start
+                /start/analyses
+                /start/dashboards
+                /start/favorites
+                /dashboards/DashboardId. DashboardId is the actual ID key from the Amazon QuickSight console URL of the dashboard.
+                /analyses/AnalysisId. AnalysisId is the actual ID key from the Amazon QuickSight console URL of the analysis.
+
+              See also:
+              https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisteredUserQuickSightConsoleEmbeddingConfiguration.html
+              */
             },
           },
           UserArn: `arn:aws:quicksight:${process.env.AWS_REGION_NUAGE}:${process.env.AWS_ACCOUNT_ID}:user/default/${process.env.QUICKSIGHT_USER_EMAIL}`,
@@ -54,7 +65,7 @@ function SessionEmbedPage(
       <main className={styles.main}>
         <h1 className={styles.title}>Dashboard Embed</h1>
       </main>
-      <QuicksightEmbed url={props.url} />
+      <QuicksightEmbed url={props.url} loadingHeight="800px" />
     </>
   );
 }
