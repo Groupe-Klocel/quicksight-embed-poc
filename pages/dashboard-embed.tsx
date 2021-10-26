@@ -1,5 +1,6 @@
 import Quicksight from "aws-sdk/clients/quicksight";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Head from "next/head";
 import React from "react";
 import { QuicksightEmbed } from "../components/QuicksightEmbed";
 import styles from "../styles/Home.module.css";
@@ -50,6 +51,12 @@ function DashboarEmbedPage(
 ) {
   return (
     <>
+      <Head>
+        <title>Dashboard Embed</title>
+        <meta name="description" content="Made with ❤️ in Bordeaux 🇫🇷" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main className={styles.main}>
         <h1 className={styles.title}>Dashboard Embed</h1>
       </main>
