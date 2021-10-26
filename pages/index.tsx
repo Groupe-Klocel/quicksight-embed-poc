@@ -46,19 +46,20 @@ function Home() {
 
         <footer className={styles.footer}>
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://nuage.studio"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Made by{" "}
+            Made with ❤️ by
             <span className={styles.logo}>
               <Image
                 src="/nuage_logo.png"
                 alt="Nuage Logo"
-                width={90}
-                height={24}
+                width={70}
+                height={18}
               />
             </span>
+            &nbsp; in Bordeaux 🍷
           </a>
         </footer>
       </div>
